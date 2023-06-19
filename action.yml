@@ -1,0 +1,19 @@
+name: 'IETF Publisher'
+description: 'Build IETF artifacts from a base markdown (md) file.'
+inputs:
+  spec_filename:
+    description: 'Name of the file containing the spec (in markdown format, with no extension).'
+    required: true
+    type: string
+  spec_git_url:
+    description: 'Cloneable git URL where the spec resides.'
+    required: true
+    type: string
+
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.spec_git_url }}
+    - ${{ inputs.spec_filename }}

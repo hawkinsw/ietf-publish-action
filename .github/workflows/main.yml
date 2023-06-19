@@ -1,0 +1,11 @@
+on: [workflow_dispatch]
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    name: testing
+    steps:
+      - name: Get me the output.
+        uses: hawkinsw/ietf-publish-action@main
+        with:
+          spec_git_url: 'https://github.com/hawkinsw/draft-ietf-ippm-responsiveness.git'
+          spec_filename: 'draft-ietf-ippm-responsiveness'
