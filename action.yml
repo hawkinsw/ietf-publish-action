@@ -12,8 +12,17 @@ inputs:
 
 
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.spec_git_url }}
-    - ${{ inputs.spec_filename }}
+  using: 'composite'
+  steps:
+    - run: chmod 755 $GITHUB_ACTION_PATH/build.sh
+      shell: bash
+    - run: chmod 755 $GITHUB_ACTION_PATH/entrypoint.sh
+      shell: bash
+    - run: $GITHUB_ACTION_PATH/build.sh
+      shell: bash
+    - run: $GITHUB_ACTION_PATH/entrypoint.sh ${{ inputs.spec_git_url }} ${{ inputs.spec_filename }}
+      shell: bash
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Published
+        path: publication/*

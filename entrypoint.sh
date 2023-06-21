@@ -15,3 +15,5 @@ xml2rfc ../publication/${spec_filename}.xml > ../publication/${spec_filename}.tx
 xml2rfc --html ../publication/${spec_filename}.xml > ../publication/${spec_filename}.html
 enscript -B -o ../publication/${spec_filename}.ps ../publication/${spec_filename}.txt
 ps2pdf ../publication/${spec_filename}.ps ../publication/${spec_filename}.pdf
+
+cd ${GITHUB_WORKSPACE}
