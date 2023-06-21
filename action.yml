@@ -9,8 +9,9 @@ inputs:
     description: 'Cloneable git URL where the spec resides.'
     required: true
     type: string
-
-
+branding:
+  icon: 'server'
+  color: 'blue'
 runs:
   using: 'composite'
   steps:
